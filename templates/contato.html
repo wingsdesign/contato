@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+		<div class="container">
+			<div class="formBox">
+				<form action="" method="post">{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12">
+								<h1>ENTRE EM CONTATO</h1>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="inputBox">
+									<div class="inputText">Nome Completo</div>
+									<input type="text" name="nome" id="id_nome" class="input">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="inputBox">
+								<!-- <div class="inputText">Selecione o Sexo</div> -->
+	                          	<select id="id_sexo" name="sexo" required="">
+	                                <option value="" selected="selected">Selecione o sexo*</option>
+	                                {% for instance in form.sexo.field.choices %}
+	                                <option {% if instance.0 == form.sexo.value %}selected{% endif %} value="{{ instance.0 }}">{{ instance.1|capfirst }}
+	                                    </option>
+	                                        {% endfor %}
+	                          </select>
+	                      </div>
+	                       </div>
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Email</div>
+									<input type="email" name="email" id="id_email" class="input">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Telefone</div>
+									<input type="text" name="telefone" id="id_telefone" class="input">
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Assunto</div>
+									<input type="text" name="assunto" id="id_assunto" class="input">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="inputBox">
+									<div class="inputText">mensagem</div>
+									<textarea class="input" name="mensagem" id="id_mensagem"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<input type="submit" name="" class="button" value="Enviar">
+							</div>
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!-- Mask -->
+<script src="{% static 'js/mask/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/mask/mask.js' %}"></script>
+ <script type="text/javascript">
+ 	$(".input").focus(function() {
+ 		$(this).parent().addClass("focus");
+ 	});
+ </script>
+</body>
+</html>
