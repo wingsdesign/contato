@@ -9,6 +9,6 @@ SISTEMA DE CONTATO FORMS EM DJANGO VINDO DO MODEL
 
 4 - python3 manage.py runserver
 
-5 - acesse o site localhost:8000/admin
+5 - acesse o site localhost:8000/contato
 
 Obrigado a todos espero que goste!!
